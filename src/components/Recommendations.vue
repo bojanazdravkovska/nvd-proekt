@@ -29,6 +29,11 @@ export default {
                 },
             });
             this.recommendations = response.data.results;
+            const recommendationsSection = document.getElementById('recommendations-section');
+            recommendationsSection.style.display = 'block';
+            recommendationsSection.style.opacity = '1';
+            recommendationsSection.style.height = 'auto';
+            recommendationsSection.scrollIntoView({ behavior: 'smooth' });
         },
         getMoviePosterUrl(posterPath) {
             if (posterPath) {
@@ -74,16 +79,20 @@ export default {
         <hr class="my-4">
         <br>
         <!-- Display recommendations here -->
-        <div v-if="recommendations.length">
+        <div v-if="recommendations.length" id="recommendations-section"
+            class="hidden opacity-0 h-0 overflow-hidden transition-all duration-300 ease-in-out">
             <h2 class="text-2xl font-semibold my-2 text-center text-orange-600">Recommendations</h2>
             <div
                 class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4  grid grid-cols-4 gap-5 mx-20 my-10">
                 <div v-for="movie in recommendations" :key="movie.id" class="rounded-lg shadow-md p-4">
-                    <img :src="getMoviePosterUrl(movie.poster_path)" alt="Movie Poster"
-                        class="w-full h-auto transition rounded-md group-hover:blur-sm cursor-pointer" />
-                    <h1 class="text-xl font-semibold my-2">{{ movie.title }}</h1>
-                    <p class="text-neutral-400 text-sm">{{ movie.overview }}</p>
+                    <RouterLink :to="`/movies/${movie.id}`">
+                        <img :src="getMoviePosterUrl(movie.poster_path)" alt="Movie Poster"
+                            class="w-full h-auto transition rounded-md group-hover:blur-sm cursor-pointer" />
+                        <h1 class="text-xl font-semibold my-2">{{ movie.title }}</h1>
+                        <p class="text-neutral-400 text-sm">{{ movie.overview }}</p>
+                    </RouterLink>
                 </div>
             </div>
         </div>
-    </div></template>
+    </div>
+</template>

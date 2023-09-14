@@ -1,5 +1,6 @@
 <script setup>
 import getImage from '../lib/getImage';
+import { inject } from 'vue';
 import { Icon } from '@iconify/vue';
 import { RouterLink } from 'vue-router';
 const { movie } = defineProps(["movie"])
@@ -13,6 +14,9 @@ release_date,
 vote_average: vote,
 original_language: language
 } = movie
+
+const rating = inject('sharedState').rating;
+
 </script>
 
 <template>
@@ -35,7 +39,7 @@ original_language: language
                 
                 <div class="absolute top-4 right-4 px-2 bg-orange-700 py-1 rounded-md">
                     <p class="flex items-center gap-1 justify-center">
-                        <span>{{  vote  }}</span>
+                        <span>{{  vote + rating  }}</span>
                         <Icon icon="material-symbols:star-rounded" color="white" />
                     </p>
                 </div>
