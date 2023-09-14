@@ -27,7 +27,7 @@ import { RouterLink } from 'vue-router';
                 <li class="hover:text-orange-600 no-underline hover:underline ">Popular Movies</li>
             </RouterLink>
             <RouterLink :to="`/recommendations`">
-                <li class="hover:text-orange-600 no-underline hover:underline " style="padding-right: 40px;">Recommandation
+                <li class="hover:text-orange-600 no-underline hover:underline " style="padding-right: 40px;">Recommendation
                 </li>
             </RouterLink>
         </ul>
