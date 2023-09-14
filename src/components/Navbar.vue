@@ -6,24 +6,30 @@ import { RouterLink } from 'vue-router';
 
 <template>
     <nav class="flex items-center justify-between flex-wrap bg-gradient-to-r from-orange-500 to-neutral-950 p-2 border-y-2">
-      <div class="ml-12 flex text-3xl items-center font-bold gap-2">
-        <RouterLink :to="`/`">
-        <Icon icon="fluent:movies-and-tv-24-regular" width="40" /> </RouterLink>
-           <span>MovieApp</span> 
+        <div class="ml-12 flex text-3xl items-center font-bold gap-2">
+            <RouterLink :to="`/`">
+                <Icon icon="fluent:movies-and-tv-24-regular" width="40" />
+            </RouterLink>
+            <span>MovieApp</span>
         </div>
         <ul class="flex items-center gap-4 font-semibold">
             <li>
-            <div class="flex items-center gap-1 hover:text-orange-600 no-underline hover:underline ">
-                <RouterLink :to="'/search'"> 
-                <span >Search</span>
-                <Icon icon="ri:search-line" />
-                </RouterLink>
+                <div class="flex items-center gap-1 hover:text-orange-600 no-underline hover:underline ">
+                    <RouterLink :to="'/search'">
+                        <span>Search</span>
+                        <Icon icon="ri:search-line" />
+                    </RouterLink>
 
-                           
-                        </div>
-                    </li>
-            <RouterLink :to="`/popular`"> <li class="hover:text-orange-600 no-underline hover:underline ">Popular Movies</li> </RouterLink>
-            <li class="hover:text-orange-600 no-underline hover:underline " >Recommandation</li>
+
+                </div>
+            </li>
+            <RouterLink :to="`/popular`">
+                <li class="hover:text-orange-600 no-underline hover:underline ">Popular Movies</li>
+            </RouterLink>
+            <RouterLink :to="`/recommendations`">
+                <li class="hover:text-orange-600 no-underline hover:underline " style="padding-right: 40px;">Recommandation
+                </li>
+            </RouterLink>
         </ul>
     </nav>
 </template>

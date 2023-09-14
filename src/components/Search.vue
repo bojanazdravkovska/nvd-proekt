@@ -28,25 +28,14 @@ export default {
             }
         },
         getMoviePosterUrl(posterPath) {
-            // Check if posterPath is available, and if so, construct the full URL
             if (posterPath) {
                 return `https://image.tmdb.org/t/p/w500/${posterPath}`;
             }
-            // If no posterPath is available, you can display a placeholder image or handle it as needed
             return '/path/to/placeholder-image.jpg';
         },
     },
 };
 </script>
-
-
-
-
-
-
-
-
-
 
 
 <template>
@@ -55,8 +44,8 @@ export default {
     </div>
     <div>
 
-        <div class="flex items-center justify-end space-x-4 mr-20 mt-4"> <!-- Add this container div with flex classes -->
-            <input type="text" class="text-red-600" v-model="query" @input="searchMovies"
+        <div class="flex items-center justify-end space-x-4 mr-20 mt-4">
+            <input type="text" class="text-red-600 rounded-md" v-model="query" @input="searchMovies"
                 placeholder="Search for a movie" />
             <button @click="searchMovies"
                 class="px-6 py-4 rounded-md bg-orange-700 w-fit transition hover:bg-neutral-800 font-semibold">
