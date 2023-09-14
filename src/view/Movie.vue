@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from "vue-router"
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { Icon } from "@iconify/vue"
 import getImage from "../lib/getImage"
 
@@ -11,6 +11,15 @@ const router = useRouter()
 const movieId = router.currentRoute.value.params.id
 // console.log(movieId)
 const movie = ref(null)
+
+onMounted(async () => {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`);
+    movie.value = await response.json();
+  } catch (error) {
+    console.error('Error fetching movie details:', error);
+  }
+});
 
 movie.value = await fetch
 (`https://api.themoviedb.org/3/movie/${movieId}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`).

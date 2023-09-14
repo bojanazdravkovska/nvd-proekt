@@ -14,8 +14,10 @@ import { RouterLink } from 'vue-router';
         <ul class="flex items-center gap-4 font-semibold">
             <li>
             <div class="flex items-center gap-1 hover:text-orange-600 no-underline hover:underline ">
+                <RouterLink :to="'/search'"> 
                 <span >Search</span>
                 <Icon icon="ri:search-line" />
+                </RouterLink>
 
                            
                         </div>
